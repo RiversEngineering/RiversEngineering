@@ -1,0 +1,34 @@
+/////////////////////////////////////////////////// Rivers Engineering Library
+#include "RiversEngineering.h"
+
+//WirelessGamepad gamepad;
+DistanceSensor d;
+
+/////////////////////////////////////////////////// Circuit Elements
+
+//Buzzer buzzer;
+
+
+
+/////////////////////////////////////////////////// Variables
+
+
+
+
+
+/////////////////////////////////////////////////// setup()
+void setup() {
+//  gamepad.begin(115200);
+   Serial.begin(115200);
+   d.begin();
+   d.cm();
+}
+
+
+
+/////////////////////////////////////////////////// loop()
+void loop() {
+//  gamepad.transmit();
+Serial.println(d.read());
+//delay(500);
+}
