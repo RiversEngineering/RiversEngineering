@@ -2,6 +2,7 @@
 #define RIVERS_NEOPIXEL_H
 
 #include "RiversIO.h"
+#include "Adafruit_NeoPixel.h"
 
 #define RGB_RED 20, 0, 0
 #define RGB_ORANGE 10, 15, 0
@@ -38,6 +39,24 @@ class Neopixel : public Output {
     void show();
     int numberOfPixels();
     void set(int r, int g, int b);
+};
+
+
+class LED : public Output {
+  private:
+    Adafruit_NeoPixel pix;
+    int numPix = 1;
+    int pin = 3;
+    int R = 100;
+    int G = 0;
+    int B = 0;
+
+  public:
+    LED();
+    void attach(int p);
+    void isAttachedTo(int p);
+    void set(int r, int g, int b);
+    void setColor(int r, int g, int b);
 };
 
 #endif

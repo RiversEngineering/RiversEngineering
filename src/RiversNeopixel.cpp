@@ -41,3 +41,28 @@ void Neopixel::set(int r, int g, int b) {
   this->setAllPixels(r, g, b);
   this->show();
 }
+
+
+
+
+LED::LED() {}
+void LED::attach(int p) {
+  pix = Adafruit_NeoPixel(1, p, NEO_GRB + NEO_KHZ800);
+  numPix = 1;
+  pin = p;
+  pix.begin();
+}
+void LED::isAttachedTo(int p) {
+  this->attach(p);
+}
+void LED::set(int r, int g, int b) {
+  pix.setPixelColor(0, r, g, b);
+  pix.show();
+}
+void LED::setColor(int r, int g, int b) {
+  R = r;
+  G = g;
+  B = b;
+  pix.setPixelColor(0, r, g, b);
+  pix.show();
+}

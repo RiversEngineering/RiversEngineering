@@ -1,9 +1,9 @@
 /*****************************************************
- * 
+ *
  * Rivers General IO Library
  * Yoshiro Fujita, 2019
  * For use in The Rivers School Engineering program
- * 
+ *
  * Implements several classes for basic circuit elements.
  * Classes include:
  * Buttons
@@ -14,30 +14,29 @@
  * Potentiometers
  * Analog Pulse Sensor
  * Analog Light Sensor
- * 
+ *
  * Also implements a NeoPixel wrapper class that makes
  * code more intuitive for students, if somewhat more
- * wordy. Two NeoPixel classes are currently included 
- * (NeoPixel and Neopixel). The former is for legacy 
- * support and is considered deprecated. It may be 
+ * wordy. Two NeoPixel classes are currently included
+ * (NeoPixel and Neopixel). The former is for legacy
+ * support and is considered deprecated. It may be
  * removed in the future.
- * 
- * This library, and other associated libraries, are 
- * written with the goal of making Arduino code more 
+ *
+ * This library, and other associated libraries, are
+ * written with the goal of making Arduino code more
  * readable for beginning students. It is NOT written
- * with experienced users in mind, and is thus fairly 
+ * with experienced users in mind, and is thus fairly
  * limited in usability for more complex applications.
- * The goal is simplicity and ease of understanding, 
+ * The goal is simplicity and ease of understanding,
  * not flexibility and complexity.
- * 
+ *
  * Requires that the Adafruit NeoPixel library be installed.
- * 
+ *
  *****************************************************/
 #ifndef IO_H
 #define IO_H
 
-#include <Adafruit_NeoPixel.h>
-
+#include <Arduino.h>
 
 class Input {
   public:
@@ -203,22 +202,7 @@ class Pulse : public AnalogInput {
 
 
 
-class LED : public Output {
-  private:
-    Adafruit_NeoPixel pix;
-    int numPix = 1;
-    int pin = 3;
-    int R = 100;
-    int G = 0;
-    int B = 0;
 
-  public:
-    LED();
-    void attach(int p);
-    void isAttachedTo(int p);
-    void set(int r, int g, int b);
-    void setColor(int r, int g, int b);
-};
 
 
 
