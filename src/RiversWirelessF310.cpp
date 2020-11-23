@@ -94,6 +94,8 @@ JoystickReportParser::JoystickReportParser(JoystickEvents *evt) : joyEvents(evt)
   for (uint8_t i = 0; i < RPT_GEMEPAD_LEN; i++)
     oldPad[i] = 0xD;
 }
+
+
 void JoystickReportParser::Parse(HID *hid, uint32_t is_rpt_id, uint32_t len, uint8_t *buf) {
   bool match = true;
 
@@ -119,6 +121,10 @@ void JoystickReportParser::Parse(HID *hid, uint32_t is_rpt_id, uint32_t len, uin
 
 
 WirelessF310::WirelessF310() {
+
+  Hub = new USBHub(&UsbH);
+  Hid = new HIDUniversal(&UsbH);
+  Joy = new JoystickReportParser(&JoyEvents);
 }
 
 
@@ -131,7 +137,7 @@ void WirelessF310::begin(int baud) {
 
   delay(200);
 
-  if (!Hid.SetReportParser(0, &Joy))
+  if (!Hid->SetReportParser(0, Joy))
     ErrorMessage<uint8_t > (PSTR("SetReportParser"), 1);
 };
 

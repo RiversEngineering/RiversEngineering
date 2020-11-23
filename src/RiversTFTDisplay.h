@@ -52,51 +52,64 @@
 
 
 
-class Display {
+class Display /*: public Print*/ {
   private:
     int TS_MINX = 350;
     int TS_MINY = 150;
     int TS_MAXX = 4000;
     int TS_MAXY = 3900;
-    int textSize = 2;
 
 
     Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
     XPT2046_Touchscreen touch = XPT2046_Touchscreen(TOUCH_CS, TOUCH_IRQ);
+    uint16_t textColor = ILI9341_WHITE;
+    uint8_t textSize = 2;
+    uint16_t drawColor = ILI9341_RED;
+
 
   public:
     Display();
     void begin();
+
     boolean touched();
     TouchPoint getTouchPoint();
     void clearScreen();
-    void println(String s, int x = 0, int y = 0, uint16_t color = ILI9341_WHITE);
-    void println(int s, int x = 0, int y = 0, uint16_t color = ILI9341_WHITE);
-    void println(float s, int x = 0, int y = 0, uint16_t color = ILI9341_WHITE);
-    void println(long s, int x = 0, int y = 0, uint16_t color = ILI9341_WHITE);
-    void println(String s, int x = 0, int y = 0, int r = 255, int g = 255, int b = 255);
-    void println(int s, int x = 0, int y = 0, int r = 255, int g = 255, int b = 255);
-    void println(float s, int x = 0, int y = 0, int r = 255, int g = 255, int b = 255);
-    void println(long s, int x = 0, int y = 0, int r = 255, int g = 255, int b = 255);
-    void println(String s, int li = 0, int r = 255, int g = 255, int b = 255);
-    void println(int s, int li = 0, int r = 255, int g = 255, int b = 255);
-    void println(float s, int li = 0, int r = 255, int g = 255, int b = 255);
-    void println(long s, int li = 0, int r = 255, int g = 255, int b = 255);
-    boolean touchDraw(int r = 255, int g = 0, int b = 0, int pen = 3);
-    boolean touchDraw(uint16_t color = ILI9341_RED, int pen = 3);
-    void drawPixel(int x, int y, int r, int g, int b);
-    void drawLine(int x0, int y0, int x1, int y1, int r, int g, int b);
-    void drawRect(int x, int y, int w, int h, int r, int g, int b);
-    void fillRect(int x, int y, int w, int h, int r, int g, int b);
-    void drawRoundRect(int x, int y, int w, int h, int rad, int r, int g, int b);
-    void fillRoundRect(int x, int y, int w, int h, int rad, int r, int g, int b);
-    void drawCircle(int x, int y, int rad, int r, int g, int b);
-    void fillCircle(int x, int y, int rad, int r, int g, int b);
-    void drawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int r, int g, int b);
-    void fillTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int r, int g, int b);
+    void setTextSize(uint8_t size);
+    void setTextColor(uint16_t color);
+    void setTextColor(int r, int g, int b);
+    void print(String s, int x = 0, int y = 0);
+    void print(int s, int x = 0, int y = 0);
+    void print(float s, int x = 0, int y = 0);
+    void print(long s, int x = 0, int y = 0);
+
+    void printToLine(String s, int li = 0);
+    void printToLine(int s, int li = 0);
+    void printToLine(float s, int li = 0);
+    void printToLine(long s, int li = 0);
+
+    void setDrawColor(uint16_t color);
+    void setDrawColor(int r, int g, int b);
+    boolean touchDraw(int pen = 3);
+
+    void drawPixel(int x, int y);
+    void drawLine(int x0, int y0, int x1, int y1);
+    void drawRect(int x, int y, int w, int h);
+    void fillRect(int x, int y, int w, int h);
+    void drawRoundRect(int x, int y, int w, int h, int rad);
+    void fillRoundRect(int x, int y, int w, int h, int rad);
+    void drawCircle(int x, int y, int rad);
+    void fillCircle(int x, int y, int rad);
+    void drawTriangle(int x0, int y0, int x1, int y1, int x2, int y2);
+    void fillTriangle(int x0, int y0, int x1, int y1, int x2, int y2);
+
+    void setBrightness(uint16_t bright);
+
     uint16_t color(int r, int g, int b);
+
     Adafruit_ILI9341 display();
     XPT2046_Touchscreen touchScreen();
+
+    //virtual size_t write(uint8_t x);
 };
 
 

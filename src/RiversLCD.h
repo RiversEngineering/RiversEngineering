@@ -1,22 +1,22 @@
 /*****************************************************
- * 
+ *
  * DFRobot 2 Line LCD Library
  * Yoshiro Fujita, 2019
  * For use in The Rivers School Engineering program
- * 
+ *
  * Implements a class that serves as a wrapper around
  * the DFRobot LCD library. This simplifies the use
  * for students and implements methods consistent with
  * other Rivers libraries.
- * 
+ *
  * Requires that the DFRobot LCD library be installed.
- * 
+ *
  *****************************************************/
 #ifndef LCD_H
 #define LCD_H
 
 #include <Wire.h>
-#include <DFRobot_LCD.h>
+#include "DFRobot_LCD.h"
 #include "RiversIO.h"
 
 #ifndef I2C
@@ -87,7 +87,7 @@ class LCD : public Output {
     LCD_PRINTTOLINE(char *)
 
 
-    
+
     ////////////////////////////////// print
     LCD_PRINT2(String)
     LCD_PRINT2(int)

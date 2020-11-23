@@ -71,11 +71,6 @@ class JoystickReportParser : public HIDReportParser {
 
 
 
-USBHost UsbH;
-USBHub Hub(&UsbH);
-HIDUniversal Hid(&UsbH);
-JoystickEvents JoyEvents;
-JoystickReportParser Joy(&JoyEvents);
 
 
 
@@ -97,6 +92,11 @@ class WirelessF310 {
 
   private:
     int _delay = 60;
+    USBHost UsbH;
+    USBHub* Hub;
+    HIDUniversal* Hid;
+    JoystickEvents JoyEvents;
+    JoystickReportParser* Joy;
 };
 
 #endif

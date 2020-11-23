@@ -1,34 +1,28 @@
 /////////////////////////////////////////////////// Rivers Engineering Library
-#include "src/RiversEngineering.h"
+#include "src/RiversTFTDisplay.h"
 
-//WirelessGamepad gamepad;
-DistanceSensor d;
-
-/////////////////////////////////////////////////// Circuit Elements
-
-//Buzzer buzzer;
-
-
-
-/////////////////////////////////////////////////// Variables
-
-
-
+Display tft;
 
 
 /////////////////////////////////////////////////// setup()
 void setup() {
-//  gamepad.begin(115200);
-   Serial.begin(115200);
-   d.begin();
-   d.cm();
+
+  Serial.begin(115200);
+  tft.begin();
+  tft.clearScreen();
+  tft.setTextColor(TFT_RED);
+  tft.setTextSize(3);
+  tft.printToLine("Testing", 1);
+  tft.printToLine("Test 2", 3);
+  tft.printToLine("Test 3", 2);
+  tft.setDrawColor(TFT_GREEN);
+  tft.fillTriangle(100, 100, 100, 200, 200, 200);
 }
 
 
 
 /////////////////////////////////////////////////// loop()
 void loop() {
-//  gamepad.transmit();
-Serial.println(d.read());
-//delay(500);
+  
+  
 }
