@@ -2,7 +2,12 @@
 
 Altimeter::Altimeter() {}
 double Altimeter::calculateSeaLevelPressure(double altitude) {
-  double seaP = this->readPressure() / pow(1 - (altitude / 44330), 5.255);
+  Serial.print("Altitude: ");
+  Serial.println(altitude);
+  double factor = pow(1 - (altitude / 44330.0), 5.255);
+  Serial.println(factor);
+  double seaP = this->readPressure() / factor;
+  Serial.println(seaP);
   return seaP;
 }
 void Altimeter::setTempOversample(int x) {
@@ -14,12 +19,14 @@ void Altimeter::setPressureOversample(int x) {
 void Altimeter::setIIRCoefficient(int x) {
   IIRCoeff = x;
 }
-void Altimeter::begin(float altitude = 54.0) {
+void Altimeter::begin(float altitude) {
   altimeter = new Adafruit_BMP3XX;
   altimeter->begin_I2C();
   altimeter->setTemperatureOversampling(tempOversample);
   altimeter->setPressureOversampling(pressureOversample);
   altimeter->setIIRFilterCoeff(IIRCoeff);
+
+  this->readPressure();
   seaLevelPressure = this->calculateSeaLevelPressure(altitude);
 }
 

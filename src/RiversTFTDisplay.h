@@ -30,25 +30,25 @@
 
 
 
-#define TFT_BLACK 0, 0, 0
-#define TFT_NAVY 0, 0, 123
-#define TFT_DARKGREEN 0, 125, 0
-#define TFT_DARKCYAN 0, 125, 123
-#define TFT_MAROON 123, 0, 0
-#define TFT_PURPLE 123, 0, 123
-#define TFT_OLIVE 123, 125, 0
-#define TFT_LIGHTGREY 198, 195, 198
-#define TFT_DARKGREY 123, 125, 123
-#define TFT_BLUE 0, 0, 255
-#define TFT_GREEN 0, 255, 0
-#define TFT_CYAN 0, 255, 255
-#define TFT_RED 255, 0, 0
-#define TFT_MAGENTA 255, 0, 255
-#define TFT_YELLOW 255, 255, 0
-#define TFT_WHITE 255, 255, 255
-#define TFT_ORANGE 255, 165, 0
-#define TFT_GREENYELLOW 173, 255, 41
-#define TFT_PINK 255, 130, 198
+#define TFT_BLACK 0
+#define TFT_NAVY 0x000F
+#define TFT_DARKGREEN 0x03E0
+#define TFT_DARKCYAN 0x03EF
+#define TFT_MAROON 0x7800
+#define TFT_PURPLE 0x780F
+#define TFT_OLIVE 0x7BE0
+#define TFT_LIGHTGREY 0xC618
+#define TFT_DARKGREY 0x7BEF
+#define TFT_BLUE 0x001F
+#define TFT_GREEN 0x07E0
+#define TFT_CYAN 0x07FF
+#define TFT_RED 0xF800
+#define TFT_MAGENTA 0xF81F
+#define TFT_YELLOW 0xFFE0
+#define TFT_WHITE 0xFFFF
+#define TFT_ORANGE 0xFD20
+#define TFT_GREENYELLOW 0xAFE5
+#define TFT_PINK 0xFC18
 
 
 
@@ -103,6 +103,9 @@ class Display /*: public Print*/ {
     void fillTriangle(int x0, int y0, int x1, int y1, int x2, int y2);
 
     void setBrightness(uint16_t bright);
+
+    int width();
+    int height();
 
     uint16_t color(int r, int g, int b);
 

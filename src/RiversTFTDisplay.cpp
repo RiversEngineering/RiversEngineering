@@ -17,7 +17,10 @@ boolean Display::touched() {
 }
 
 TouchPoint Display::getTouchPoint() {
-  return touch.getPoint();
+  TouchPoint p = touch.getPoint();
+  p.x = map(p.x, TS_MINX, TS_MAXX, 0, tft.width());
+  p.y = map(p.y, TS_MINY, TS_MAXY, 0, tft.height());
+  return p;
 }
 
 void Display::clearScreen() {
@@ -89,8 +92,6 @@ void Display::setDrawColor(int r, int g, int b) {
 boolean Display::touchDraw(int pen) {
   if (touch.touched()) {
     TouchPoint p = this->getTouchPoint();
-    p.x = map(p.x, TS_MINX, TS_MAXX, 0, tft.width());
-    p.y = map(p.y, TS_MINY, TS_MAXY, 0, tft.height());
 
     tft.fillCircle(p.x, p.y, pen, drawColor);
     return true;
@@ -141,6 +142,14 @@ void Display::setBrightness(uint16_t bright) {
     bright = 1023;
 
   analogWrite(A0, bright);
+}
+
+
+int Display::width() {
+  return tft.width();
+}
+int Display::height() {
+  return tft.height();
 }
 
 

@@ -87,11 +87,12 @@ class Button : public Input {
 class Buzzer : public Output {
   private:
     int pin;
+    int frequency = -1;
   public:
     Buzzer();
     void attach(int p);
     void isAttachedTo(int p);
-    void play(int frequency);
+    void play(int f);
     void play();
     void stop();
 };

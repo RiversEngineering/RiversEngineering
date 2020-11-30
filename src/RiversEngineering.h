@@ -1,13 +1,13 @@
 /*****************************************************
- * 
+ *
  * Engineering Libraries
  * Yoshiro Fujita, 2019
  * For use in The Rivers School Engineering program
- * 
+ *
  * Includes all the libraries used in The Rivers School
- * Engineering program so students won't have to 
+ * Engineering program so students won't have to
  * remember all library names.
- * 
+ *
  * Also requires the following libraries be installed:
  * Adafruit_Sensor.h
  * Adafruit_BMP3XX.h
@@ -15,7 +15,7 @@
  * Adafruit_NeoPixel.h
  * DFRobot_VL53L0X.h
  * DFRobot_LCD.h
- * 
+ *
  *****************************************************/
 #ifndef ENGINEERING_H
 #define ENGINEERING_H
@@ -31,6 +31,7 @@
 #include "RiversAltimeter.h"
 #include "RiversSerialWrapper.h"
 #include "RiversTFTDisplay.h"
+#include "RiversNeopixel.h"
 
 
 #endif

@@ -35,7 +35,7 @@ Display	KEYWORD1
 
 #######################################
 # Methods and Functions
-#######################################	
+#######################################
 
 attach	KEYWORD2
 isAttachedTo	KEYWORD2
@@ -173,7 +173,10 @@ drawTriangle	KEYWORD2
 fillTriangle	KEYWORD2
 color	KEYWORD2
 display	KEYWORD2
+getTouchPoint KEYWORD2
 touchScreen	KEYWORD2
+clearScreen	KEYWORD2
+
 
 
 

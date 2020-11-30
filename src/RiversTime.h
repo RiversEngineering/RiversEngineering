@@ -53,10 +53,10 @@ class Timer : public Input {
     Timer();
     Timer(long length);
     Timer(int length);
+    void set(long length);
     void setLength(long length);
     void start();
     boolean isDone();
-    boolean isNotDone();
     int read();
 };
 

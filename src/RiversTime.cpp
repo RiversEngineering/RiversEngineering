@@ -31,6 +31,9 @@ Timer::Timer(long length) {
 Timer::Timer(int length) {
   this->setLength(length);
 }
+void Timer::set(long length) {
+  this->setLength(length);
+}
 void Timer::setLength(long length) {
   waitTime = length;
 }
@@ -39,9 +42,6 @@ void Timer::start() {
 }
 boolean Timer::isDone() {
   return (millis() > startTime + waitTime);
-}
-boolean Timer::isNotDone() {
-  return !this->isDone();
 }
 int Timer::read() {
   return this->isDone();

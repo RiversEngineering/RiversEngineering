@@ -68,14 +68,19 @@ void Buzzer::attach(int p) {
 void Buzzer::isAttachedTo(int p) {
   this->attach(p);
 }
-void Buzzer::play(int frequency) {
-  tone(pin, frequency);
+void Buzzer::play(int f) {
+  if (frequency != f)
+    tone(pin, f);
+  frequency = f;
 }
 void Buzzer::play() {
-  this->play(110);
+  if (frequency != 110)
+    this->play(110);
+frequency = 110;
 }
 void Buzzer::stop() {
   noTone(pin);
+  frequency = -1;
 }
 
 
