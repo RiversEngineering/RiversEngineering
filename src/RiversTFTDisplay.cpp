@@ -28,6 +28,10 @@ void Display::clearScreen() {
   tft.fillScreen(ILI9341_BLACK);
 }
 
+void Display::rotate(int r) {
+  tft.setRotation(r);
+  touch.setRotation((r + 2) % 4);
+}
 
 void Display::setTextSize(uint8_t size) {
   textSize = size;
@@ -59,6 +63,12 @@ void Display::print(float s, int x, int y) {
   tft.setTextSize(textSize);
   tft.println(s);
 }
+void Display::print(double s, int x, int y) {
+  tft.setCursor(x, y);
+  tft.setTextColor(textColor);
+  tft.setTextSize(textSize);
+  tft.println(s);
+}
 void Display::print(long s, int x, int y) {
   tft.setCursor(x, y);
   tft.setTextColor(textColor);
@@ -73,6 +83,9 @@ void Display::printToLine(int s, int li) {
   this->print(s, 0, li * textSize * 8);
 }
 void Display::printToLine(float s, int li) {
+  this->print(s, 0, li * textSize * 8);
+}
+void Display::printToLine(double s, int li) {
   this->print(s, 0, li * textSize * 8);
 }
 void Display::printToLine(long s, int li) {

@@ -1,13 +1,9 @@
 #include "RiversAltimeter.h"
 
 Altimeter::Altimeter() {}
-double Altimeter::calculateSeaLevelPressure(double altitude) {
-  Serial.print("Altitude: ");
-  Serial.println(altitude);
+double Altimeter::calculateSeaLevelPressure(double altitude) {\
   double factor = pow(1 - (altitude / 44330.0), 5.255);
-  Serial.println(factor);
   double seaP = this->readPressure() / factor;
-  Serial.println(seaP);
   return seaP;
 }
 void Altimeter::setTempOversample(int x) {
@@ -25,9 +21,10 @@ void Altimeter::begin(float altitude) {
   altimeter->setTemperatureOversampling(tempOversample);
   altimeter->setPressureOversampling(pressureOversample);
   altimeter->setIIRFilterCoeff(IIRCoeff);
-
   this->readPressure();
+  delay(200);
   seaLevelPressure = this->calculateSeaLevelPressure(altitude);
+
 }
 
 float Altimeter::readAltitude() {

@@ -54,8 +54,11 @@ class DistanceSensor : public Input {
 
   public:
     DistanceSensor();
-    void begin(Adafruit_VL53L0X::VL53L0X_Sense_config_t config_t = LONG_RANGE);
+    void begin();
     double read();
+    int ambient();
+    int signal();
+    int status();
     void setConversionFactor(double cf);
     void mm();
     void cm();

@@ -74,17 +74,21 @@ class Display /*: public Print*/ {
     boolean touched();
     TouchPoint getTouchPoint();
     void clearScreen();
+    void rotate(int r);
+
     void setTextSize(uint8_t size);
     void setTextColor(uint16_t color);
     void setTextColor(int r, int g, int b);
     void print(String s, int x = 0, int y = 0);
     void print(int s, int x = 0, int y = 0);
     void print(float s, int x = 0, int y = 0);
+    void print(double s, int x = 0, int y = 0);
     void print(long s, int x = 0, int y = 0);
 
     void printToLine(String s, int li = 0);
     void printToLine(int s, int li = 0);
     void printToLine(float s, int li = 0);
+    void printToLine(double s, int li = 0);
     void printToLine(long s, int li = 0);
 
     void setDrawColor(uint16_t color);

@@ -6,15 +6,26 @@
 //Adafruit Variant
 DistanceSensor::DistanceSensor() {
 }
-void DistanceSensor::begin(Adafruit_VL53L0X::VL53L0X_Sense_config_t config_t) {
-  tof.begin(config_t);
+void DistanceSensor::begin() {
+  tof.begin();
 }
 double DistanceSensor::read() {
   tof.rangingTest(&measure, false);
-  if (measure.RangeStatus != 4) {
+  if (measure.RangeStatus != 4 && measure.RangeMilliMeter < 8000) {
     return measure.RangeMilliMeter / conversionFactor;
   }
   else return -1;
+}
+int DistanceSensor::ambient() {
+  return measure.AmbientRateRtnMegaCps;
+}
+
+int DistanceSensor::signal() {
+  return measure.SignalRateRtnMegaCps;
+}
+
+int DistanceSensor::status() {
+  return tof.readRangeStatus();
 }
 void DistanceSensor::setConversionFactor(double cf) {
   conversionFactor = cf;
@@ -44,8 +55,6 @@ void DistanceSensor::ft() {
 DistanceSensor::DistanceSensor() {
   tof = new DFRobotVL53L0X;
 }
-void DistanceSensor::attach(int i) {}
-void DistanceSensor::isAttachedTo(int i) {}
 void DistanceSensor::begin() {
   Wire.begin();
   tof->begin(0x50);
@@ -55,6 +64,19 @@ void DistanceSensor::begin() {
 double DistanceSensor::read() {
   return tof->getDistance() / conversionFactor;
 }
+
+int DistanceSensor::ambient() {
+  return tof->getAmbientCount();
+}
+
+int DistanceSensor::signal() {
+  return tof->getSignalCount();
+}
+
+int DistanceSensor::status() {
+  return tof->getStatus();
+}
+
 void DistanceSensor::setConversionFactor(double cf) {
   conversionFactor = cf;
 }

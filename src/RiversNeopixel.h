@@ -29,6 +29,7 @@ class Neopixel : public Output {
   public:
     Neopixel();
     void attach(int p, int n);
+    void attach(int p);
     void isAttachedTo(int p);
     void setNumPixels(int n);
     void begin();

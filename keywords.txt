@@ -26,9 +26,6 @@ Stopwatch	KEYWORD1
 Timer	KEYWORD1
 Ultrasonic	KEYWORD1
 TouchPoint	KEYWORD1
-WirelessGamepad	KEYWORD1
-WirelessF310	KEYWORD1
-WirelessGamepadShield	KEYWORD1
 WirelessInput	KEYWORD1
 Display	KEYWORD1
 
@@ -87,8 +84,6 @@ off	KEYWORD2
 turnOff	KEYWORD2
 setBrightness	KEYWORD2
 
-setPixel	KEYWORD2
-setAllPixels	KEYWORD2
 preparePixel	KEYWORD2
 prepareAllPixels	KEYWORD2
 updatePixels	KEYWORD2

@@ -14,6 +14,7 @@ Button::Button() {};
 void Button::attach(int p) {
   pin = p;
   pinMode(pin, INPUT_PULLUP);
+  delay(200);
 }
 void Button::isAttachedTo(int p) {
   this->attach(p);
@@ -64,6 +65,7 @@ Buzzer::Buzzer() {};
 void Buzzer::attach(int p) {
   pin = p;
   pinMode(pin, OUTPUT);
+  delay(200);
 }
 void Buzzer::isAttachedTo(int p) {
   this->attach(p);

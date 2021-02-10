@@ -7,6 +7,9 @@ void Neopixel::attach(int p, int n) {
   pin = p;
   pix.begin();
 }
+void Neopixel::attach(int p) {
+  this->isAttachedTo(p);
+}
 void Neopixel::isAttachedTo(int p) {
   pin = p;
 }
@@ -16,6 +19,7 @@ void Neopixel::setNumPixels(int n) {
 void Neopixel::begin() {
   pix = Adafruit_NeoPixel(numPix, pin, NEO_GRB + NEO_KHZ800);
   pix.begin();
+  delay(1000);
 }
 void Neopixel::setPixel(int p, int r, int g, int b) {
   pix.setPixelColor(p, r, g, b);
@@ -51,6 +55,7 @@ void LED::attach(int p) {
   numPix = 1;
   pin = p;
   pix.begin();
+  delay(1000);
 }
 void LED::isAttachedTo(int p) {
   this->attach(p);
