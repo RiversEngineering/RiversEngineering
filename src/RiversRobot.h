@@ -1,24 +1,24 @@
 /*****************************************************
- * 
+ *
  * Rivers Robotics Library
  * Yoshiro Fujita, 2019
  * For use in The Rivers School Robotics program
- * 
+ *
  * Includes all classes necessary for use in the Rivers
  * Robotics program.
- * 
+ *
  * In development is an alternate format that further
- * simplifies the programming process, automatically 
- * declaring setup() and loop() to automatically 
+ * simplifies the programming process, automatically
+ * declaring setup() and loop() to automatically
  * establish and refresh connections with wireless
  * gamepad controllers. If this is used, students would
  * NOT define their own setup() and loop(), but would
  * instead use robotLoop() and place their code there.
- * 
+ *
  * Further instantiates predefined motor objects
  * based on different drive types like differential
  * and omni drive.
- * 
+ *
  *****************************************************/
 #include "RiversWirelessInput.h"
 #include "RiversMotor.h"
@@ -27,6 +27,7 @@
 #include "RiversTime.h"
 #include "RiversIO.h"
 #include "RiversEngineering.h"
+#include "RiversTFLuna.h"
 
 
 // handles predefining things for simple student code
