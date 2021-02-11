@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////// Rivers Engineering Library
-#include "src/RiversEngineering.h"
+#include "src/RiversTFLuna.h"
 
-Display screen;
+TFLuna ranger;
 
 
 
@@ -9,16 +9,12 @@ Display screen;
 void setup() {
 
   Serial.begin(115200);
-  while (!Serial);
-  screen.begin();
-  screen.clearScreen();
-  screen.setTextColor(TFT_WHITE);
-  screen.print("Test", 100, 100);
-
+  ranger.begin();
 }
 
 
 
 /////////////////////////////////////////////////// loop()
 void loop() {
+  Serial.println(ranger.read());       
 }
